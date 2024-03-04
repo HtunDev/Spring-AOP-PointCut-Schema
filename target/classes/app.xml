@@ -15,18 +15,19 @@
 
 	<bean class="com.HAH.demo.aspects.DemoAspects" id="demoAspects"></bean>
 
-	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<!-- <aop:aspectj-autoproxy proxy-target-class="true" /> -->
 
 	<aop:config>
-		<!-- <aop:pointcut expression="within(com.HAH.demo.admin.service.AdminService)" 
+		<!-- <aop:pointcut expression="target(com.HAH.demo.admin.service.AdminService)" 
 			id="adminServiceMethods" /> -->
-		<aop:pointcut expression="execution(void memberMethods(String,Integer))"
-			id="memberServiceMethods" />
+			<aop:pointcut expression="this(com.HAH.demo.HelloEnable)" 
+			id="adminServiceMethods" />
+		<!-- <aop:pointcut expression="execution(void memberMethods(String,Integer))"
+			id="memberServiceMethods" /> -->
 		<aop:aspect id="aspects" ref="demoAspects">
-			<!-- <aop:before method="beforeInvocation" pointcut-ref="adminServiceMethods" 
-				/> -->
-			<aop:before method="beforeInvocation"
-				pointcut-ref="memberServiceMethods" />
+			<aop:before method="beforeInvocation" pointcut-ref="adminServiceMethods" />
+			<!-- <aop:before method="beforeInvocation"
+				pointcut-ref="memberServiceMethods" /> -->
 		</aop:aspect>
 	</aop:config>
 </beans>
