@@ -18,7 +18,7 @@
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 
 	<aop:config>
-		<aop:pointcut expression="bean(adminService)"
+		<aop:pointcut expression="within(com.HAH.demo.admin.service.AdminService)"
 			id="adminServiceMethods" />
 		<aop:aspect id="aspects" ref="demoAspects">
 			<aop:before method="beforeInvocation"
