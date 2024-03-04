@@ -20,7 +20,7 @@
 	<aop:config>
 		<!-- <aop:pointcut expression="within(com.HAH.demo.admin.service.AdminService)" 
 			id="adminServiceMethods" /> -->
-		<aop:pointcut expression="args(String,Integer)"
+		<aop:pointcut expression="execution(void memberMethods(String,Integer))"
 			id="memberServiceMethods" />
 		<aop:aspect id="aspects" ref="demoAspects">
 			<!-- <aop:before method="beforeInvocation" pointcut-ref="adminServiceMethods" 
