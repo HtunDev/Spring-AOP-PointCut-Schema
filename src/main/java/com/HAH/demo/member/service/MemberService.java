@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberService{
 
-	public void memberMethods() {
+	public void memberMethods(String name,Integer age){
 		System.out.println("This message from Member Service");
 	}
 

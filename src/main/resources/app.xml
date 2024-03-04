@@ -14,15 +14,19 @@
 		base-package="com.HAH.demo"></context:component-scan>
 
 	<bean class="com.HAH.demo.aspects.DemoAspects" id="demoAspects"></bean>
-	
+
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 
 	<aop:config>
-		<aop:pointcut expression="within(com.HAH.demo.admin.service.AdminService)"
-			id="adminServiceMethods" />
+		<!-- <aop:pointcut expression="within(com.HAH.demo.admin.service.AdminService)" 
+			id="adminServiceMethods" /> -->
+		<aop:pointcut expression="args(String,Integer)"
+			id="memberServiceMethods" />
 		<aop:aspect id="aspects" ref="demoAspects">
+			<!-- <aop:before method="beforeInvocation" pointcut-ref="adminServiceMethods" 
+				/> -->
 			<aop:before method="beforeInvocation"
-				pointcut-ref="adminServiceMethods" />
+				pointcut-ref="memberServiceMethods" />
 		</aop:aspect>
 	</aop:config>
 </beans>
