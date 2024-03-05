@@ -20,7 +20,7 @@ public class TestDemo {
 	@Test
 	void demoTest() {
 //		memberService.memberMethods("Htun Aung Hlaing", 23);
-//		helloEnable.helloMethod("Hello Learning AOP Concept");
+		helloEnable.helloMethod("Hello Learning AOP Concept");
 		helloEnable.helloMethod(new Data(17));
 	}
 

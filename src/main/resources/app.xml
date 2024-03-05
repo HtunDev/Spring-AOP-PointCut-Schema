@@ -23,7 +23,7 @@
 		<!-- <aop:pointcut expression="@annotation(com.HAH.demo.BeforeLoger)" id="adminServiceMethods" 
 			/> -->
 		<aop:pointcut
-			expression="@args(com.HAH.demo.BeforeLoger)"
+			expression="@within(com.HAH.demo.BeforeLoger)"
 			id="adminServiceMethods" />
 		<!-- <aop:pointcut expression="execution(void memberMethods(String,Integer))" 
 			id="memberServiceMethods" /> -->
