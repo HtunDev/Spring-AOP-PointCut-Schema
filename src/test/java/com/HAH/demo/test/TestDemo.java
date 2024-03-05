@@ -21,7 +21,7 @@ public class TestDemo {
 	void demoTest() {
 //		memberService.memberMethods("Htun Aung Hlaing", 23);
 		helloEnable.helloMethod("Hello Learning AOP Concept");
-		helloEnable.helloMethod(new Data(17));
+		helloEnable.saveData(new Data(18));
 	}
 
 }

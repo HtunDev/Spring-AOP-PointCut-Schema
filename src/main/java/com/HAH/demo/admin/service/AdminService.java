@@ -17,7 +17,7 @@ public class AdminService implements HelloEnable {
 
 	}
 
-	public void helloMethod(Data data) {
+	public void saveData(Data data) {
 		System.out.println();
 	}
 }
