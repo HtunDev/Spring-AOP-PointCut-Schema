@@ -13,25 +13,16 @@
 	<context:component-scan
 		base-package="com.HAH.demo"></context:component-scan>
 
-	<bean class="com.HAH.demo.aspects.DemoAspects" id="demoAspects"></bean>
+	<bean class="com.HAH.demo.aspects.Advisors" id="advisors"></bean>
 
 	<!-- <aop:aspectj-autoproxy proxy-target-class="true" /> -->
 
 	<aop:config>
-		<!-- <aop:pointcut expression="target(com.HAH.demo.admin.service.AdminService)" 
-			id="adminServiceMethods" /> -->
-		<!-- <aop:pointcut expression="@annotation(com.HAH.demo.BeforeLoger)" id="adminServiceMethods" 
-			/> -->
 		<aop:pointcut
-			expression="@within(com.HAH.demo.BeforeLoger) and execution(* save*(..))"
+			expression="@within(com.HAH.demo.BeforeLoger)"
 			id="adminServiceMethods" />
-		<!-- <aop:pointcut expression="execution(void memberMethods(String,Integer))" 
-			id="memberServiceMethods" /> -->
-		<aop:aspect id="aspects" ref="demoAspects">
-			<aop:before method="beforeInvocation"
-				pointcut-ref="adminServiceMethods" />
-			<!-- <aop:before method="beforeInvocation" pointcut-ref="memberServiceMethods" 
-				/> -->
-		</aop:aspect>
+		
+		<aop:advisor advice-ref="advisors" pointcut-ref="adminServiceMethods"/>
+			
 	</aop:config>
 </beans>
