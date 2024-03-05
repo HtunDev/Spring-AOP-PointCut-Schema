@@ -20,14 +20,18 @@
 	<aop:config>
 		<!-- <aop:pointcut expression="target(com.HAH.demo.admin.service.AdminService)" 
 			id="adminServiceMethods" /> -->
-			<aop:pointcut expression="this(com.HAH.demo.HelloEnable)" 
+		<!-- <aop:pointcut expression="@annotation(com.HAH.demo.BeforeLoger)" id="adminServiceMethods" 
+			/> -->
+		<aop:pointcut
+			expression="@args(com.HAH.demo.BeforeLoger)"
 			id="adminServiceMethods" />
-		<!-- <aop:pointcut expression="execution(void memberMethods(String,Integer))"
+		<!-- <aop:pointcut expression="execution(void memberMethods(String,Integer))" 
 			id="memberServiceMethods" /> -->
 		<aop:aspect id="aspects" ref="demoAspects">
-			<aop:before method="beforeInvocation" pointcut-ref="adminServiceMethods" />
-			<!-- <aop:before method="beforeInvocation"
-				pointcut-ref="memberServiceMethods" /> -->
+			<aop:before method="beforeInvocation"
+				pointcut-ref="adminServiceMethods" />
+			<!-- <aop:before method="beforeInvocation" pointcut-ref="memberServiceMethods" 
+				/> -->
 		</aop:aspect>
 	</aop:config>
 </beans>
